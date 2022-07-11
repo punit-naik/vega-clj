@@ -21,6 +21,14 @@ lein with-profiles +clj-test test
 lein with-profiles +clj-test test
 ```
 
+## Docs
+
+[API Docs](https://punit-naik.github.io/vega-clj)
+
+### Code Coverage
+
+[Code Coverage Report](https://punit-naik.github.io/vega-clj/coverage)
+
 ## License
 
 Copyright © 2022 [Punit Naik](https://github.com/punit-naik)
