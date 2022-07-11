@@ -1,0 +1,572 @@
+<html>
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="../../../coverage.css"/>  <title> org/clojars/punit_naik/core.cljc </title>
+ </head>
+ <body>
+<span class="covered" title="1 out of 1 forms covered">
+                001&nbsp;&nbsp;(ns&nbsp;org.clojars.punit-naik.core
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                002&nbsp;&nbsp;&nbsp;&nbsp;(:require&nbsp;[org.clojars.punit-naik.canvas&nbsp;:refer&nbsp;[add-mark&nbsp;set-backgroud&nbsp;set-config&nbsp;set-height&nbsp;set-width]]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[org.clojars.punit-naik.chart-actions&nbsp;:refer&nbsp;[add-tooltip&nbsp;increase-hover-area&nbsp;select-on-click&nbsp;zoom-on-scroll]]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[org.clojars.punit-naik.data&nbsp;:refer&nbsp;[add-dataset&nbsp;tick-count]]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[org.clojars.punit-naik.data-transformations&nbsp;:refer&nbsp;[apply-filter]]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[org.clojars.punit-naik.draw&nbsp;:refer&nbsp;[add-axes&nbsp;add-dashes&nbsp;add-opacity&nbsp;add-rule-for-line&nbsp;custom-stack-colours&nbsp;stack]]))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                007&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                008&nbsp;&nbsp;(defn&nbsp;init
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                009&nbsp;&nbsp;&nbsp;&nbsp;&quot;Initialises&nbsp;the&nbsp;Vega-lite&nbsp;spec&nbsp;with&nbsp;default&nbsp;values&nbsp;and&nbsp;returns&nbsp;the&nbsp;same&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                010&nbsp;&nbsp;&nbsp;&nbsp;[]
+                </span><br/>
+<span class="covered" title="2 out of 2 forms covered">
+                011&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;{}
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(set-height&nbsp;600)
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(set-width&nbsp;600)
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(set-backgroud&nbsp;&quot;transparent&quot;)
+                </span><br/>
+<span class="covered" title="7 out of 7 forms covered">
+                015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(set-config&nbsp;{:view&nbsp;{:stroke&nbsp;&quot;transparent&quot;}
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:mark&nbsp;{:cursor&nbsp;&quot;pointer&quot;}})))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                017&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                018&nbsp;&nbsp;(defn&nbsp;axis-data
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                019&nbsp;&nbsp;&nbsp;&nbsp;[data&nbsp;axis-fld-name]
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                020&nbsp;&nbsp;&nbsp;&nbsp;(map&nbsp;axis-fld-name&nbsp;data))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                021&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                022&nbsp;&nbsp;(defn&nbsp;mark-config
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                023&nbsp;&nbsp;&nbsp;&nbsp;[{:keys&nbsp;[chart-type&nbsp;chart-interpolate&nbsp;point?]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{chart-type&nbsp;&quot;line&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                025&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chart-interpolate&nbsp;&quot;monotone&quot;}}]
+                </span><br/>
+<span class="partial" title="12 out of 18 forms covered">
+                026&nbsp;&nbsp;&nbsp;&nbsp;(cond-&gt;&nbsp;{:type&nbsp;chart-type
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                027&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:invalid&nbsp;&quot;filter&quot;}
+                </span><br/>
+<span class="partial" title="3 out of 6 forms covered">
+                028&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)&nbsp;(assoc&nbsp;:type&nbsp;&quot;line&quot;)
+                </span><br/>
+<span class="partial" title="7 out of 9 forms covered">
+                029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or&nbsp;(=&nbsp;chart-type&nbsp;&quot;line&quot;)
+                </span><br/>
+<span class="partial" title="4 out of 5 forms covered">
+                030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;))&nbsp;(assoc&nbsp;:interpolate&nbsp;chart-interpolate)
+                </span><br/>
+<span class="partial" title="11 out of 14 forms covered">
+                031&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(and&nbsp;(or&nbsp;(=&nbsp;chart-type&nbsp;&quot;line&quot;)
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                032&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;))
+                </span><br/>
+<span class="not-covered" title="0 out of 6 forms covered">
+                033&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;point?)&nbsp;(assoc&nbsp;:point&nbsp;{:filled&nbsp;true&nbsp;:size&nbsp;60})))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                034&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                035&nbsp;&nbsp;(defmulti&nbsp;axis-config
+                </span><br/>
+<span class="covered" title="2 out of 2 forms covered">
+                036&nbsp;&nbsp;&nbsp;&nbsp;(fn&nbsp;[axis&nbsp;_&nbsp;_&nbsp;_&nbsp;_]&nbsp;axis))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                037&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                038&nbsp;&nbsp;(defmethod&nbsp;axis-config&nbsp;:x
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                039&nbsp;&nbsp;&nbsp;&nbsp;[_
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                041&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[x-fld-name&nbsp;x-fld-type&nbsp;x-fld-title
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                042&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-label-angle&nbsp;x-title-font-size
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                043&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-label-font-size&nbsp;x-label-overlap
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                044&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-grid&nbsp;x-tick-count]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                045&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{x-fld-name&nbsp;&quot;x&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-type&nbsp;&quot;temporal&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                047&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-title&nbsp;&quot;Time&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                048&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-label-angle&nbsp;0
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                049&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-title-font-size&nbsp;14
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                050&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-label-font-size&nbsp;12
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                051&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-label-overlap&nbsp;false
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                052&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-grid&nbsp;false
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                053&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-tick-count&nbsp;(tick-count&nbsp;data)}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                054&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[y-fld-type]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                055&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{y-fld-type&nbsp;&quot;quantitative&quot;}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                056&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[chart-type&nbsp;bucket&nbsp;bucket-mapper]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                057&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{chart-type&nbsp;&quot;line&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                058&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket&nbsp;&quot;1d&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                059&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket-mapper&nbsp;{&quot;1d&quot;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                060&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1w&quot;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                061&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1M&quot;&nbsp;&quot;monthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                062&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1q&quot;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                063&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1y&quot;&nbsp;&quot;year&quot;}}}]
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                064&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[x-fld-temporal?&nbsp;(=&nbsp;x-fld-type&nbsp;&quot;temporal&quot;)
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                065&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-temporal?&nbsp;(=&nbsp;y-fld-type&nbsp;&quot;temporal&quot;)
+                </span><br/>
+<span class="partial" title="4 out of 5 forms covered">
+                066&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time-unit&nbsp;(if&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                067&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                068&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(get&nbsp;bucket-mapper&nbsp;bucket))]
+                </span><br/>
+<span class="covered" title="6 out of 6 forms covered">
+                069&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:x-fld-name&nbsp;x-fld-name&nbsp;:x-fld-type&nbsp;x-fld-type
+                </span><br/>
+<span class="partial" title="12 out of 18 forms covered">
+                070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:x-fld-opts&nbsp;(cond-&gt;&nbsp;{:title&nbsp;x-fld-title
+                </span><br/>
+<span class="covered" title="10 out of 10 forms covered">
+                071&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:axis&nbsp;(merge&nbsp;{:labelAngle&nbsp;x-label-angle
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                072&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelOverlap&nbsp;x-label-overlap
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                073&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:grid&nbsp;x-grid
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                074&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:titleFontSize&nbsp;x-title-font-size
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                075&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelFontSize&nbsp;x-label-font-size
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                076&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tickCount&nbsp;x-tick-count}
+                </span><br/>
+<span class="partial" title="9 out of 12 forms covered">
+                077&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(when&nbsp;(and&nbsp;(not=&nbsp;x-fld-type&nbsp;&quot;temporal&quot;)
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                078&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;bar&quot;))
+                </span><br/>
+<span class="not-covered" title="0 out of 10 forms covered">
+                079&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:tickOffset&nbsp;{:expr&nbsp;(str&nbsp;&quot;width&#x2F;&quot;&nbsp;(*&nbsp;-2.25&nbsp;x-tick-count))}}))}
+                </span><br/>
+<span class="covered" title="5 out of 5 forms covered">
+                080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-temporal?&nbsp;(assoc&nbsp;:timeUnit&nbsp;time-unit)
+                </span><br/>
+<span class="covered" title="7 out of 7 forms covered">
+                081&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-temporal?&nbsp;(assoc-in&nbsp;[:axis&nbsp;:labelAngle]&nbsp;-25)
+                </span><br/>
+<span class="covered" title="15 out of 15 forms covered">
+                082&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-temporal?&nbsp;(assoc-in&nbsp;[:axis&nbsp;:values]&nbsp;(-&gt;&gt;&nbsp;(axis-data&nbsp;data&nbsp;(keyword&nbsp;x-fld-name))
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                083&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distinct
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                084&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sort))
+                </span><br/>
+<span class="partial" title="1 out of 5 forms covered">
+                085&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-temporal?&nbsp;(assoc&nbsp;:impute&nbsp;{:value&nbsp;0}))}))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                086&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                087&nbsp;&nbsp;(defmethod&nbsp;axis-config&nbsp;:y
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                088&nbsp;&nbsp;&nbsp;&nbsp;[_
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                089&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[x-fld-type]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                091&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{x-fld-type&nbsp;&quot;temporal&quot;}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                092&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[y-fld-name&nbsp;y-fld-type&nbsp;y-fld-title
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                093&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-label-angle&nbsp;y-title-font-size
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                094&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-label-font-size&nbsp;y-label-overlap
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                095&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-grid&nbsp;y-tick-count]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                096&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{y-fld-name&nbsp;&quot;y&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                097&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-type&nbsp;&quot;quantitative&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                098&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-title&nbsp;&quot;Count&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                099&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-label-angle&nbsp;0
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-title-font-size&nbsp;14
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-label-font-size&nbsp;12
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                102&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-label-overlap&nbsp;false
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                103&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-grid&nbsp;false
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-tick-count&nbsp;(tick-count&nbsp;data)}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                105&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[chart-type&nbsp;bucket&nbsp;bucket-mapper]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                106&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{chart-type&nbsp;&quot;line&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                107&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket&nbsp;&quot;1d&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                108&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket-mapper&nbsp;{&quot;1d&quot;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                109&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1w&quot;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1M&quot;&nbsp;&quot;monthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1q&quot;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                112&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1y&quot;&nbsp;&quot;year&quot;}}}]
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                113&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[x-fld-temporal?&nbsp;(=&nbsp;x-fld-type&nbsp;&quot;temporal&quot;)
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                114&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-temporal?&nbsp;(=&nbsp;y-fld-type&nbsp;&quot;temporal&quot;)
+                </span><br/>
+<span class="partial" title="4 out of 5 forms covered">
+                115&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time-unit&nbsp;(if&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                116&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;datemonthyear&quot;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                117&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(get&nbsp;bucket-mapper&nbsp;bucket))]
+                </span><br/>
+<span class="covered" title="6 out of 6 forms covered">
+                118&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:y-fld-name&nbsp;y-fld-name&nbsp;:y-fld-type&nbsp;y-fld-type
+                </span><br/>
+<span class="partial" title="15 out of 18 forms covered">
+                119&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:y-fld-opts&nbsp;(cond-&gt;&nbsp;{:title&nbsp;y-fld-title
+                </span><br/>
+<span class="covered" title="8 out of 8 forms covered">
+                120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:axis&nbsp;{:labelAngle&nbsp;y-label-angle
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                121&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelOverlap&nbsp;y-label-overlap
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                122&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:grid&nbsp;y-grid
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:titleFontSize&nbsp;y-title-font-size
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                124&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelFontSize&nbsp;y-label-font-size
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                125&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tickCount&nbsp;y-tick-count}}
+                </span><br/>
+<span class="partial" title="1 out of 5 forms covered">
+                126&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-temporal?&nbsp;(assoc&nbsp;:timeUnit&nbsp;time-unit)
+                </span><br/>
+<span class="partial" title="1 out of 7 forms covered">
+                127&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-temporal?&nbsp;(assoc-in&nbsp;[:axis&nbsp;:labelAngle]&nbsp;-25)
+                </span><br/>
+<span class="partial" title="1 out of 15 forms covered">
+                128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-temporal?&nbsp;(assoc-in&nbsp;[:axis&nbsp;:values]&nbsp;(-&gt;&gt;&nbsp;(axis-data&nbsp;data&nbsp;(keyword&nbsp;y-fld-name))
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                129&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;distinct
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sort))
+                </span><br/>
+<span class="covered" title="5 out of 5 forms covered">
+                131&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-temporal?&nbsp;(assoc&nbsp;:impute&nbsp;{:value&nbsp;0}))}))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                132&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                133&nbsp;&nbsp;(defn&nbsp;gen-chart-spec
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                134&nbsp;&nbsp;&nbsp;&nbsp;[id&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[chart-type&nbsp;chart-interpolate&nbsp;tooltip?
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                136&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dash-fld-name&nbsp;opacity-fld-name
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                137&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increase-hover-area?&nbsp;zoom-on-scroll?
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                138&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;add-opacity?&nbsp;select-on-click?
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                139&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable-legend?]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{chart-type&nbsp;&quot;line&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                141&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chart-interpolate&nbsp;&quot;monotone&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                142&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;false
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                143&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-opacity?&nbsp;false
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                144&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-on-click?&nbsp;false
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                145&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dash-fld-name&nbsp;&quot;stroke&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                146&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity-fld-name&nbsp;&quot;opacity&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                147&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip?&nbsp;true
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                148&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable-legend?&nbsp;false}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                149&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;chart-info}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[stack-fld-name&nbsp;stack-fld-type&nbsp;stack-fld-title&nbsp;stack-fld-opts
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                151&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custom-stack-colours-map]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                152&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{stack-fld-name&nbsp;&quot;label&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                153&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-type&nbsp;&quot;nominal&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                154&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-title&nbsp;&quot;Labels&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                155&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-opts&nbsp;{:title&nbsp;stack-fld-title&nbsp;:legend&nbsp;{:orient&nbsp;&quot;top&quot;}}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                156&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;stack-info}]
+                </span><br/>
+<span class="partial" title="9 out of 10 forms covered">
+                157&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[line-chart?&nbsp;(or&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                158&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;line&quot;))
+                </span><br/>
+<span class="partial" title="5 out of 6 forms covered">
+                159&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;(and&nbsp;dashed-lines?
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-chart?)]
+                </span><br/>
+<span class="partial" title="21 out of 31 forms covered">
+                161&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond-&gt;&nbsp;(-&gt;&nbsp;(init)
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                162&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-dataset&nbsp;data)
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                163&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:id&nbsp;id)
+                </span><br/>
+<span class="covered" title="11 out of 11 forms covered">
+                164&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-axes&nbsp;(merge&nbsp;(axis-config&nbsp;:x&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;chart-info)
+                </span><br/>
+<span class="covered" title="7 out of 7 forms covered">
+                165&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(axis-config&nbsp;:y&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;chart-info)))
+                </span><br/>
+<span class="covered" title="5 out of 5 forms covered">
+                166&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;(mark-config&nbsp;chart-info))
+                </span><br/>
+<span class="covered" title="7 out of 7 forms covered">
+                167&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;x&quot;&nbsp;:valid&nbsp;true})
+                </span><br/>
+<span class="covered" title="6 out of 6 forms covered">
+                168&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;y&quot;&nbsp;:valid&nbsp;true}))
+                </span><br/>
+<span class="partial" title="1 out of 5 forms covered">
+                169&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-opacity?&nbsp;(add-opacity&nbsp;opacity-fld-name)
+                </span><br/>
+<span class="partial" title="1 out of 5 forms covered">
+                170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;(add-dashes&nbsp;dash-fld-name)
+                </span><br/>
+<span class="partial" title="1 out of 2 forms covered">
+                171&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increase-hover-area?&nbsp;increase-hover-area
+                </span><br/>
+<span class="partial" title="1 out of 2 forms covered">
+                172&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom-on-scroll?&nbsp;zoom-on-scroll
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                173&nbsp;&nbsp;
+                </span><br/>
+<span class="partial" title="8 out of 10 forms covered">
+                174&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(and&nbsp;stack-info
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                175&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&gt;&nbsp;(count&nbsp;data)&nbsp;1)
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                176&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-chart?)
+                </span><br/>
+<span class="covered" title="6 out of 6 forms covered">
+                177&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-rule-for-line&nbsp;chart-type&nbsp;stack-fld-name&nbsp;chart-interpolate)
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                178&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                179&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(seq&nbsp;stack-info)
+                </span><br/>
+<span class="covered" title="9 out of 9 forms covered">
+                180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(stack&nbsp;{:stack-fld&nbsp;stack-fld-name&nbsp;:stack-fld-type&nbsp;stack-fld-type
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                181&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:stack-fld-opts&nbsp;stack-fld-opts})
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                182&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                183&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(seq&nbsp;custom-stack-colours-map)
+                </span><br/>
+<span class="not-covered" title="0 out of 4 forms covered">
+                184&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(custom-stack-colours&nbsp;custom-stack-colours-map)
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                185&nbsp;&nbsp;
+                </span><br/>
+<span class="partial" title="1 out of 9 forms covered">
+                186&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-on-click?&nbsp;(select-on-click&nbsp;{:select-fld&nbsp;stack-fld-name&nbsp;:select-name&nbsp;:company})
+                </span><br/>
+<span class="covered" title="7 out of 7 forms covered">
+                187&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip?&nbsp;(add-tooltip&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;stack-info)
+                </span><br/>
+<span class="partial" title="1 out of 8 forms covered">
+                188&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable-legend?&nbsp;(update&nbsp;:config&nbsp;merge&nbsp;{:legend&nbsp;{:disable&nbsp;true}}))))
+                </span><br/>
+ </body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="../../../coverage.css"/>  <title> org/clojars/punit_naik/data_transformations.cljc </title>
+ </head>
+ <body>
+<span class="covered" title="1 out of 1 forms covered">
+                001&nbsp;&nbsp;(ns&nbsp;org.clojars.punit-naik.data-transformations)
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                002&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                003&nbsp;&nbsp;(defn&nbsp;apply-aggregate
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                004&nbsp;&nbsp;&nbsp;&nbsp;&quot;Adds&nbsp;a&nbsp;vega&nbsp;aggregate&nbsp;element&nbsp;in&nbsp;the&nbsp;Vega-lite&nbsp;spec&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                005&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[fld-name&nbsp;fld-alias&nbsp;grp-by-flds&nbsp;op]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{fld-alias&nbsp;(str&nbsp;fld-name&nbsp;&quot;_agg&quot;)}}]
+                </span><br/>
+<span class="covered" title="8 out of 8 forms covered">
+                008&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;vl-spec&nbsp;:transform&nbsp;conj&nbsp;{:aggregate
+                </span><br/>
+<span class="covered" title="8 out of 8 forms covered">
+                009&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{:op&nbsp;op&nbsp;:field&nbsp;fld-name&nbsp;:as&nbsp;fld-alias}]
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:groupby&nbsp;(if&nbsp;(coll?&nbsp;grp-by-flds)
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grp-by-flds
+                </span><br/>
+<span class="covered" title="2 out of 2 forms covered">
+                012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[grp-by-flds])}))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                013&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                014&nbsp;&nbsp;(defn&nbsp;do-calculation
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                015&nbsp;&nbsp;&nbsp;&nbsp;&quot;Does&nbsp;a&nbsp;calculation&nbsp;on&nbsp;some&nbsp;fields&nbsp;in&nbsp;the&nbsp;data&nbsp;in&nbsp;the&nbsp;Vega-lite&nbsp;spec&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                016&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[calc-str&nbsp;calc-fld-alias]}]
+                </span><br/>
+<span class="covered" title="10 out of 10 forms covered">
+                018&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;vl-spec&nbsp;:transform&nbsp;conj&nbsp;{:calculate&nbsp;calc-str&nbsp;:as&nbsp;calc-fld-alias}))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                019&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                020&nbsp;&nbsp;(defn&nbsp;apply-filter
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                021&nbsp;&nbsp;&nbsp;&nbsp;&quot;Applies&nbsp;filter&nbsp;on&nbsp;the&nbsp;Dataset&nbsp;in&nbsp;the&nbsp;Vega-lite&nbsp;spec&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                022&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec&nbsp;filter-clauses]
+                </span><br/>
+<span class="covered" title="8 out of 8 forms covered">
+                023&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;vl-spec&nbsp;:transform&nbsp;conj&nbsp;{:filter&nbsp;filter-clauses}))
+                </span><br/>
+ </body>
+</html>

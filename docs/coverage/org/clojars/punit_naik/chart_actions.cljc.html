@@ -1,0 +1,161 @@
+<html>
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="../../../coverage.css"/>  <title> org/clojars/punit_naik/chart_actions.cljc </title>
+ </head>
+ <body>
+<span class="covered" title="1 out of 1 forms covered">
+                001&nbsp;&nbsp;(ns&nbsp;org.clojars.punit-naik.chart-actions)
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                002&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                003&nbsp;&nbsp;(defn&nbsp;add-tooltip
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                004&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                005&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[x-fld-name&nbsp;x-fld-type&nbsp;x-fld-title]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{x-fld-name&nbsp;&quot;x&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                007&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-type&nbsp;&quot;temporal&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                008&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-title&nbsp;&quot;Time&quot;}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                009&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[y-fld-name&nbsp;y-fld-type&nbsp;y-fld-title]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{y-fld-name&nbsp;&quot;y&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-type&nbsp;&quot;quantitative&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                012&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y-fld-title&nbsp;&quot;Count&quot;}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[stack-fld-name&nbsp;stack-fld-type&nbsp;stack-fld-title]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{stack-fld-name&nbsp;&quot;label&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-type&nbsp;&quot;nominal&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-title&nbsp;&quot;Labels&quot;}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                017&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;stack-info}]
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                018&nbsp;&nbsp;&nbsp;&nbsp;(update
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                019&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vl-spec
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                020&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:encoding
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                021&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assoc
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                022&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:tooltip
+                </span><br/>
+<span class="covered" title="13 out of 13 forms covered">
+                023&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond-&gt;&nbsp;[{:field&nbsp;x-fld-name&nbsp;:title&nbsp;x-fld-title&nbsp;:type&nbsp;x-fld-type}
+                </span><br/>
+<span class="covered" title="7 out of 7 forms covered">
+                024&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:field&nbsp;y-fld-name&nbsp;:title&nbsp;y-fld-title&nbsp;:type&nbsp;y-fld-type}]
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                025&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(seq&nbsp;stack-info)
+                </span><br/>
+<span class="covered" title="8 out of 8 forms covered">
+                026&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(conj&nbsp;{:field&nbsp;stack-fld-name&nbsp;:title&nbsp;stack-fld-title&nbsp;:type&nbsp;stack-fld-type}))))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                027&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                028&nbsp;&nbsp;(defn&nbsp;increase-hover-area
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                029&nbsp;&nbsp;&nbsp;&nbsp;&quot;Adds&nbsp;a&nbsp;selection&nbsp;in&nbsp;the&nbsp;`spec`&nbsp;to&nbsp;increase&nbsp;the&nbsp;hover&nbsp;area&nbsp;of&nbsp;a&nbsp;point&nbsp;on&nbsp;the&nbsp;chart
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So&nbsp;that&nbsp;tooltips&nbsp;show&nbsp;even&nbsp;if&nbsp;the&nbsp;cursor&nbsp;is&nbsp;not&nbsp;exactly&nbsp;on&nbsp;the&nbsp;point&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                031&nbsp;&nbsp;&nbsp;&nbsp;[spec]
+                </span><br/>
+<span class="covered" title="17 out of 17 forms covered">
+                032&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;spec&nbsp;:selection&nbsp;assoc&nbsp;:hover&nbsp;{:nearest&nbsp;true&nbsp;:type&nbsp;&quot;single&quot;&nbsp;:empty&nbsp;&quot;none&quot;&nbsp;:on&nbsp;&quot;mouseover&quot;&nbsp;:clear&nbsp;&quot;mouseout&quot;}))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                033&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                034&nbsp;&nbsp;(defn&nbsp;select-on-click
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                035&nbsp;&nbsp;&nbsp;&nbsp;&quot;Selects&nbsp;data&nbsp;only&nbsp;belonging&nbsp;to&nbsp;a&nbsp;particular&nbsp;label&nbsp;which&nbsp;was&nbsp;clicked
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                036&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;fades&nbsp;out&nbsp;others&nbsp;from&nbsp;the&nbsp;legend&nbsp;bar&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                037&nbsp;&nbsp;&nbsp;&nbsp;[spec&nbsp;{:keys&nbsp;[select-fld&nbsp;select-type&nbsp;select-bind&nbsp;select-name]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                038&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{select-fld&nbsp;&quot;label&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                039&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-type&nbsp;&quot;multi&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-bind&nbsp;&quot;legend&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                041&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-name&nbsp;:A}}]
+                </span><br/>
+<span class="covered" title="4 out of 4 forms covered">
+                042&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;spec
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                043&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;&nbsp;Selection
+                </span><br/>
+<span class="covered" title="13 out of 13 forms covered">
+                044&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:selection&nbsp;assoc&nbsp;select-name&nbsp;{:type&nbsp;select-type&nbsp;:fields&nbsp;[select-fld]&nbsp;:bind&nbsp;select-bind})
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                045&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;&nbsp;Selection&nbsp;Action
+                </span><br/>
+<span class="covered" title="13 out of 13 forms covered">
+                046&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;assoc&nbsp;:opacity&nbsp;{:condition&nbsp;{:selection&nbsp;(name&nbsp;select-name)&nbsp;:value&nbsp;1}&nbsp;:value&nbsp;0.05})))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                047&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                048&nbsp;&nbsp;(defn&nbsp;zoom-on-scroll
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                049&nbsp;&nbsp;&nbsp;&nbsp;&quot;Zooms&nbsp;in&#x2F;out&nbsp;the&nbsp;graph&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                050&nbsp;&nbsp;&nbsp;&nbsp;[spec]
+                </span><br/>
+<span class="covered" title="11 out of 11 forms covered">
+                051&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;spec&nbsp;:selection&nbsp;assoc&nbsp;:grid&nbsp;{:type&nbsp;&quot;interval&quot;&nbsp;:bind&nbsp;&quot;scales&quot;}))
+                </span><br/>
+ </body>
+</html>

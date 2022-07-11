@@ -1,0 +1,68 @@
+<html>
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="../../../coverage.css"/>  <title> org/clojars/punit_naik/data_test.cljc </title>
+ </head>
+ <body>
+<span class="covered" title="1 out of 1 forms covered">
+                001&nbsp;&nbsp;(ns&nbsp;org.clojars.punit-naik.data-test
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                002&nbsp;&nbsp;&nbsp;&nbsp;(:require&nbsp;[clojure.test&nbsp;:refer&nbsp;[deftest&nbsp;is]]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[org.clojars.punit-naik.data&nbsp;:as&nbsp;data]))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                004&nbsp;&nbsp;
+                </span><br/>
+<span class="partial" title="12 out of 13 forms covered">
+                005&nbsp;&nbsp;(defonce&nbsp;sample-data&nbsp;[{:x&nbsp;&quot;a&quot;&nbsp;:y&nbsp;1}
+                </span><br/>
+<span class="covered" title="5 out of 5 forms covered">
+                006&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:x&nbsp;&quot;b&quot;&nbsp;:y&nbsp;2}])
+                </span><br/>
+<span class="partial" title="8 out of 9 forms covered">
+                007&nbsp;&nbsp;(defonce&nbsp;sample-data-2&nbsp;(-&gt;&gt;&nbsp;sample-data
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                008&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(repeat&nbsp;10)
+                </span><br/>
+<span class="covered" title="2 out of 2 forms covered">
+                009&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reduce&nbsp;concat)))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                010&nbsp;&nbsp;
+                </span><br/>
+<span class="partial" title="2 out of 5 forms covered">
+                011&nbsp;&nbsp;(deftest&nbsp;add-dataset-test
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                012&nbsp;&nbsp;&nbsp;&nbsp;(is&nbsp;(=&nbsp;{:data&nbsp;{:values&nbsp;sample-data}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                013&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(data&#x2F;add-dataset
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                014&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sample-data))))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                016&nbsp;&nbsp;
+                </span><br/>
+<span class="partial" title="2 out of 5 forms covered">
+                017&nbsp;&nbsp;(deftest&nbsp;tick-count-test
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                018&nbsp;&nbsp;&nbsp;&nbsp;(is&nbsp;(=&nbsp;2&nbsp;(data&#x2F;tick-count&nbsp;sample-data)))
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                019&nbsp;&nbsp;&nbsp;&nbsp;(is&nbsp;(=&nbsp;10&nbsp;(data&#x2F;tick-count&nbsp;sample-data-2&nbsp;10)))
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                020&nbsp;&nbsp;&nbsp;&nbsp;(is&nbsp;(=&nbsp;20&nbsp;(data&#x2F;tick-count&nbsp;sample-data-2))))
+                </span><br/>
+ </body>
+</html>
