@@ -2,10 +2,7 @@
   (:require [cljs.test :refer-macros [deftest is testing]]
             [org.clojars.punit-naik.core :as core]
             [org.clojars.punit-naik.vega-clj :as v]
-            [reagent.core :as r]
             [reagent.dom :as rdom]))
-
-(def state (r/atom nil))
 
 (def spec
   (core/gen-chart-spec
@@ -18,7 +15,7 @@
 
 (defn render-chart
   [spec]
-  [:> (v/plot spec (fn [_ v] (reset! state 1)))])
+  [:> (v/plot spec)])
 
 (deftest a
   (is (= 1 1)))
@@ -28,4 +25,4 @@
     (let [doc js/document
           elem (.createElement doc "div")]
       (rdom/render [render-chart spec] elem))
-    (is (= true true))))
+    (is (= 1 1))))
