@@ -2,12 +2,14 @@
 #
 # Check https://circleci.com/docs/2.0/language-clojure/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
 jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: ai212983/lein-doo-karma
+      - image: circleci/clojure:lein-2.9.1-node-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -30,8 +32,8 @@ jobs:
             - v1-dependencies-{{ checksum "project.clj" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
       - run: lein deps
+      - run: sudo npm install -g karma-cli
 
       - save_cache:
           paths:
