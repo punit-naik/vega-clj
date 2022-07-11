@@ -34,7 +34,6 @@ jobs:
             - v1-dependencies-
       - run: lein deps
       - run: sudo npm install -g karma-cli
-      - run: npm install react@16.8.6
 
       - save_cache:
           paths:

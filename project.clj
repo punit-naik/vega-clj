@@ -48,7 +48,8 @@
                    :npm-deps {:karma "6.4.0"
                               :karma-chrome-launcher "3.1.1"
                               :karma-cljs-test "0.1.0"
-                              :react-dom "16.8.6"}
+                              :react-dom "16.8.6"
+                              :react "16.8.6"}
                    :install-deps true
                    :infer-externs true
                    :language-in     :ecmascript-next
