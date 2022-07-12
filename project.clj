@@ -1,4 +1,4 @@
-(defproject org.clojars.punit-naik/vega-clj "1.0.1"
+(defproject org.clojars.punit-naik/vega-clj "1.0.2"
   :description "A clojure(script) library that generates vega spec to be rendered as a chart by the Vega JS lib"
   :url "https://github.com/punit-naik/vega-clj"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
