@@ -66,16 +66,22 @@
   "Adds a rule (vertical line) when hovered over any point, works even when not exactly hovered over a point
    Makes clicking on line charts easier"
   [spec chart-type stack-fld-name chart-interpolate]
-  (assoc spec :layer [(select-on-click {:encoding {:color {:value "transparent", :condition {:field stack-fld-name, :selection "hover"}}}, :mark {:strokeOpacity 0.5, :strokeDash [4 2], :type "rule", :point {:size 60, :filled true}}, :selection {:hover {:nearest true, :type "single", :empty "none", :on "mouseover", :clear "mouseout"}}} {:select-name :B, :select-fld stack-fld-name})
-                      (-> {}
-                          (add-mark (cond-> {:type chart-type
-                                             :invalid "filter"}
-                                      (= chart-type "moving-avg") (assoc :type "line")
-                                      (or (= chart-type "line")
-                                          (= chart-type "moving-avg")) (assoc :interpolate chart-interpolate)))
-                          (select-on-click {:select-fld stack-fld-name :select-name :company})
-                          (apply-filter {:field "x" :valid true})
-                          (apply-filter {:field "y" :valid true}))]))
+  (assoc
+   spec
+   :layer
+   [(select-on-click
+     {:encoding {:color {:value "transparent", :condition {:field stack-fld-name, :selection "hover"}}},
+      :mark {:strokeOpacity 0.5, :strokeDash [4 2], :type "rule", :point {:size 60, :filled true}},
+      :selection {:hover {:nearest true, :type "single", :empty "none", :on "mouseover", :clear "mouseout"}}}
+     {:select-name :B, :select-fld stack-fld-name})
+    (-> (add-mark nil (cond-> {:type chart-type
+                               :invalid "filter"}
+                        (= chart-type "moving-avg") (assoc :type "line")
+                        (or (= chart-type "line")
+                            (= chart-type "moving-avg")) (assoc :interpolate chart-interpolate)))
+        (select-on-click {:select-fld stack-fld-name :select-name :C})
+        (apply-filter {:field "x" :valid true})
+        (apply-filter {:field "y" :valid true}))]))
 
 (defn stack
   "Stacks charts based on a particular field on the aggregated field of the chart
