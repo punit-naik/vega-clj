@@ -208,377 +208,395 @@
 <span class="not-tracked" title="0 out of 0 forms covered">
                 068&nbsp;&nbsp;&nbsp;&nbsp;[spec&nbsp;chart-type&nbsp;stack-fld-name&nbsp;chart-interpolate]
                 </span><br/>
-<span class="covered" title="55 out of 55 forms covered">
-                069&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;spec&nbsp;:layer&nbsp;[(select-on-click&nbsp;{:encoding&nbsp;{:color&nbsp;{:value&nbsp;&quot;transparent&quot;,&nbsp;:condition&nbsp;{:field&nbsp;stack-fld-name,&nbsp;:selection&nbsp;&quot;hover&quot;}}},&nbsp;:mark&nbsp;{:strokeOpacity&nbsp;0.5,&nbsp;:strokeDash&nbsp;[4&nbsp;2],&nbsp;:type&nbsp;&quot;rule&quot;,&nbsp;:point&nbsp;{:size&nbsp;60,&nbsp;:filled&nbsp;true}},&nbsp;:selection&nbsp;{:hover&nbsp;{:nearest&nbsp;true,&nbsp;:type&nbsp;&quot;single&quot;,&nbsp;:empty&nbsp;&quot;none&quot;,&nbsp;:on&nbsp;&quot;mouseover&quot;,&nbsp;:clear&nbsp;&quot;mouseout&quot;}}}&nbsp;{:select-name&nbsp;:B,&nbsp;:select-fld&nbsp;stack-fld-name})
+<span class="covered" title="3 out of 3 forms covered">
+                069&nbsp;&nbsp;&nbsp;&nbsp;(assoc
                 </span><br/>
-<span class="covered" title="2 out of 2 forms covered">
-                070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;{}
-                </span><br/>
-<span class="partial" title="14 out of 17 forms covered">
-                071&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;(cond-&gt;&nbsp;{:type&nbsp;chart-type
+<span class="covered" title="1 out of 1 forms covered">
+                070&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spec
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                072&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:invalid&nbsp;&quot;filter&quot;}
+                071&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:layer
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                072&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(select-on-click
+                </span><br/>
+<span class="covered" title="15 out of 15 forms covered">
+                073&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:encoding&nbsp;{:color&nbsp;{:value&nbsp;&quot;transparent&quot;,&nbsp;:condition&nbsp;{:field&nbsp;stack-fld-name,&nbsp;:selection&nbsp;&quot;hover&quot;}}},
+                </span><br/>
+<span class="covered" title="15 out of 15 forms covered">
+                074&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:mark&nbsp;{:strokeOpacity&nbsp;0.5,&nbsp;:strokeDash&nbsp;[4&nbsp;2],&nbsp;:type&nbsp;&quot;rule&quot;,&nbsp;:point&nbsp;{:size&nbsp;60,&nbsp;:filled&nbsp;true}},
+                </span><br/>
+<span class="covered" title="13 out of 13 forms covered">
+                075&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:selection&nbsp;{:hover&nbsp;{:nearest&nbsp;true,&nbsp;:type&nbsp;&quot;single&quot;,&nbsp;:empty&nbsp;&quot;none&quot;,&nbsp;:on&nbsp;&quot;mouseover&quot;,&nbsp;:clear&nbsp;&quot;mouseout&quot;}}}
+                </span><br/>
+<span class="covered" title="5 out of 5 forms covered">
+                076&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:select-name&nbsp;:B,&nbsp;:select-fld&nbsp;stack-fld-name})
+                </span><br/>
+<span class="partial" title="16 out of 19 forms covered">
+                077&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;(add-mark&nbsp;nil&nbsp;(cond-&gt;&nbsp;{:type&nbsp;chart-type
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                078&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:invalid&nbsp;&quot;filter&quot;}
                 </span><br/>
 <span class="partial" title="3 out of 6 forms covered">
-                073&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)&nbsp;(assoc&nbsp;:type&nbsp;&quot;line&quot;)
+                079&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)&nbsp;(assoc&nbsp;:type&nbsp;&quot;line&quot;)
                 </span><br/>
 <span class="partial" title="7 out of 9 forms covered">
-                074&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or&nbsp;(=&nbsp;chart-type&nbsp;&quot;line&quot;)
+                080&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or&nbsp;(=&nbsp;chart-type&nbsp;&quot;line&quot;)
                 </span><br/>
 <span class="partial" title="2 out of 3 forms covered">
-                075&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;))&nbsp;(assoc&nbsp;:interpolate&nbsp;chart-interpolate)))
+                081&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;))&nbsp;(assoc&nbsp;:interpolate&nbsp;chart-interpolate)))
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                076&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(select-on-click&nbsp;{:select-fld&nbsp;stack-fld-name&nbsp;:select-name&nbsp;:company})
+                082&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(select-on-click&nbsp;{:select-fld&nbsp;stack-fld-name&nbsp;:select-name&nbsp;:C})
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                077&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;x&quot;&nbsp;:valid&nbsp;true})
+                083&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;x&quot;&nbsp;:valid&nbsp;true})
                 </span><br/>
 <span class="covered" title="6 out of 6 forms covered">
-                078&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;y&quot;&nbsp;:valid&nbsp;true}))]))
+                084&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;y&quot;&nbsp;:valid&nbsp;true}))]))
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                079&nbsp;&nbsp;
+                085&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                080&nbsp;&nbsp;(defn&nbsp;stack
+                086&nbsp;&nbsp;(defn&nbsp;stack
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                081&nbsp;&nbsp;&nbsp;&nbsp;&quot;Stacks&nbsp;charts&nbsp;based&nbsp;on&nbsp;a&nbsp;particular&nbsp;field&nbsp;on&nbsp;the&nbsp;aggregated&nbsp;field&nbsp;of&nbsp;the&nbsp;chart
+                087&nbsp;&nbsp;&nbsp;&nbsp;&quot;Stacks&nbsp;charts&nbsp;based&nbsp;on&nbsp;a&nbsp;particular&nbsp;field&nbsp;on&nbsp;the&nbsp;aggregated&nbsp;field&nbsp;of&nbsp;the&nbsp;chart
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                082&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;Only&nbsp;to&nbsp;be&nbsp;used&nbsp;when&nbsp;there&nbsp;is&nbsp;an&nbsp;aggregated&nbsp;field&nbsp;in&nbsp;the&nbsp;chart&nbsp;in&nbsp;`encoding`&nbsp;and&nbsp;not&nbsp;in&nbsp;`transform`&quot;
+                088&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE:&nbsp;Only&nbsp;to&nbsp;be&nbsp;used&nbsp;when&nbsp;there&nbsp;is&nbsp;an&nbsp;aggregated&nbsp;field&nbsp;in&nbsp;the&nbsp;chart&nbsp;in&nbsp;`encoding`&nbsp;and&nbsp;not&nbsp;in&nbsp;`transform`&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                083&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec
+                089&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                084&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[stack-fld&nbsp;stack-fld-type&nbsp;stack-fld-opts]
+                090&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[stack-fld&nbsp;stack-fld-type&nbsp;stack-fld-opts]
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                085&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{stack-fld-opts&nbsp;{}}}]
+                091&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{stack-fld-opts&nbsp;{}}}]
                 </span><br/>
 <span class="covered" title="11 out of 11 forms covered">
-                086&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[color&nbsp;{:color&nbsp;(merge&nbsp;{:field&nbsp;stack-fld&nbsp;:type&nbsp;stack-fld-type}&nbsp;stack-fld-opts)}]
+                092&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[color&nbsp;{:color&nbsp;(merge&nbsp;{:field&nbsp;stack-fld&nbsp;:type&nbsp;stack-fld-type}&nbsp;stack-fld-opts)}]
                 </span><br/>
 <span class="covered" title="6 out of 6 forms covered">
-                087&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;vl-spec&nbsp;:encoding&nbsp;merge&nbsp;color)))
+                093&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;vl-spec&nbsp;:encoding&nbsp;merge&nbsp;color)))
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                088&nbsp;&nbsp;
+                094&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                089&nbsp;&nbsp;(defn&nbsp;get-stack-fld-info
+                095&nbsp;&nbsp;(defn&nbsp;get-stack-fld-info
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                090&nbsp;&nbsp;&nbsp;&nbsp;&quot;Gets&nbsp;the&nbsp;info&nbsp;the&nbsp;the&nbsp;field&nbsp;using&nbsp;which&nbsp;the&nbsp;chart&nbsp;is&nbsp;being&nbsp;stacked&nbsp;(coloured)&quot;
+                096&nbsp;&nbsp;&nbsp;&nbsp;&quot;Gets&nbsp;the&nbsp;info&nbsp;the&nbsp;the&nbsp;field&nbsp;using&nbsp;which&nbsp;the&nbsp;chart&nbsp;is&nbsp;being&nbsp;stacked&nbsp;(coloured)&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                091&nbsp;&nbsp;&nbsp;&nbsp;[spec]
+                097&nbsp;&nbsp;&nbsp;&nbsp;[spec]
                 </span><br/>
 <span class="covered" title="4 out of 4 forms covered">
-                092&nbsp;&nbsp;&nbsp;&nbsp;(get-fld-info&nbsp;spec&nbsp;:color))
+                098&nbsp;&nbsp;&nbsp;&nbsp;(get-fld-info&nbsp;spec&nbsp;:color))
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                093&nbsp;&nbsp;
+                099&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                094&nbsp;&nbsp;(defn&nbsp;get-step-size
+                100&nbsp;&nbsp;(defn&nbsp;get-step-size
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                095&nbsp;&nbsp;&nbsp;&nbsp;&quot;Gets&nbsp;the&nbsp;step&nbsp;size&nbsp;for&nbsp;grouped&nbsp;bar&nbsp;charts&nbsp;based&nbsp;on&nbsp;data&quot;
+                101&nbsp;&nbsp;&nbsp;&nbsp;&quot;Gets&nbsp;the&nbsp;step&nbsp;size&nbsp;for&nbsp;grouped&nbsp;bar&nbsp;charts&nbsp;based&nbsp;on&nbsp;data&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                096&nbsp;&nbsp;&nbsp;&nbsp;[{:keys&nbsp;[width]&nbsp;:as&nbsp;spec}]
+                102&nbsp;&nbsp;&nbsp;&nbsp;[{:keys&nbsp;[width]&nbsp;:as&nbsp;spec}]
                 </span><br/>
 <span class="covered" title="4 out of 4 forms covered">
-                097&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[labels&nbsp;(-&gt;&gt;&nbsp;spec&nbsp;:data&nbsp;:values
+                103&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[labels&nbsp;(-&gt;&gt;&nbsp;spec&nbsp;:data&nbsp;:values
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                098&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(map&nbsp;:label))
+                104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(map&nbsp;:label))
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                099&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total-groups&nbsp;(-&gt;&gt;&nbsp;labels
+                105&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total-groups&nbsp;(-&gt;&gt;&nbsp;labels
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                100&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(partition-by&nbsp;identity)
+                106&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(partition-by&nbsp;identity)
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                101&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;count)
+                107&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first&nbsp;count)
                 </span><br/>
 <span class="covered" title="8 out of 8 forms covered">
-                102&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;step&nbsp;(double&nbsp;(&#x2F;&nbsp;(-&nbsp;width&nbsp;(*&nbsp;(dec&nbsp;total-groups)&nbsp;2))
+                108&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;step&nbsp;(double&nbsp;(&#x2F;&nbsp;(-&nbsp;width&nbsp;(*&nbsp;(dec&nbsp;total-groups)&nbsp;2))
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                103&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(count&nbsp;labels)))
+                109&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(count&nbsp;labels)))
                 </span><br/>
 <span class="partial" title="5 out of 6 forms covered">
-                104&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;step&nbsp;(if&nbsp;(&lt;&nbsp;step&nbsp;1)&nbsp;1&nbsp;step)
+                110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;step&nbsp;(if&nbsp;(&lt;&nbsp;step&nbsp;1)&nbsp;1&nbsp;step)
                 </span><br/>
 <span class="covered" title="4 out of 4 forms covered">
-                105&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-width&nbsp;{:step&nbsp;step
+                111&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-width&nbsp;{:step&nbsp;step
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                106&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;&nbsp;Just&nbsp;to&nbsp;keep&nbsp;track&nbsp;of&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;line&nbsp;chart
+                112&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;&nbsp;Just&nbsp;to&nbsp;keep&nbsp;track&nbsp;of&nbsp;the&nbsp;width&nbsp;of&nbsp;the&nbsp;line&nbsp;chart
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                107&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;&nbsp;Does&nbsp;not&nbsp;have&nbsp;to&nbsp;do&nbsp;anything&nbsp;with&nbsp;the&nbsp;actual&nbsp;spec
+                113&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;;&nbsp;Does&nbsp;not&nbsp;have&nbsp;to&nbsp;do&nbsp;anything&nbsp;with&nbsp;the&nbsp;actual&nbsp;spec
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                108&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:original-value&nbsp;width}]
+                114&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:original-value&nbsp;width}]
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                109&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-width))
+                115&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-width))
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                110&nbsp;&nbsp;
+                116&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                111&nbsp;&nbsp;(defn&nbsp;header-for-grouped-bar-chart
+                117&nbsp;&nbsp;(defn&nbsp;header-for-grouped-bar-chart
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                112&nbsp;&nbsp;&nbsp;&nbsp;[x-fld-info&nbsp;total-records&nbsp;bucket]
+                118&nbsp;&nbsp;&nbsp;&nbsp;[x-fld-info&nbsp;total-records&nbsp;bucket]
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                113&nbsp;&nbsp;&nbsp;&nbsp;(merge&nbsp;(:axis&nbsp;x-fld-info)
+                119&nbsp;&nbsp;&nbsp;&nbsp;(merge&nbsp;(:axis&nbsp;x-fld-info)
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                114&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:labelAngle&nbsp;90
+                120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:labelAngle&nbsp;90
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                115&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelPadding&nbsp;0
+                121&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelPadding&nbsp;0
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                116&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelAlign&nbsp;&quot;left&quot;}
+                122&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelAlign&nbsp;&quot;left&quot;}
                 </span><br/>
 <span class="partial" title="4 out of 5 forms covered">
-                117&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(when&nbsp;(&gt;&nbsp;total-records&nbsp;100)
+                123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(when&nbsp;(&gt;&nbsp;total-records&nbsp;100)
                 </span><br/>
 <span class="not-covered" title="0 out of 15 forms covered">
-                118&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:labelExpr&nbsp;(str&nbsp;&quot;[(timeFormat(datum.value,&nbsp;&quot;
+                124&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:labelExpr&nbsp;(str&nbsp;&quot;[(timeFormat(datum.value,&nbsp;&quot;
                 </span><br/>
 <span class="not-covered" title="0 out of 7 forms covered">
-                119&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond
+                125&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond
                 </span><br/>
 <span class="not-covered" title="0 out of 5 forms covered">
-                120&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(contains?&nbsp;#{&quot;1d&quot;&nbsp;&quot;1w&quot;}
+                126&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(contains?&nbsp;#{&quot;1d&quot;&nbsp;&quot;1w&quot;}
                 </span><br/>
 <span class="not-covered" title="0 out of 1 forms covered">
-                121&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket)&nbsp;&quot;&#x27;%d&#x27;&quot;
+                127&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket)&nbsp;&quot;&#x27;%d&#x27;&quot;
                 </span><br/>
 <span class="not-covered" title="0 out of 5 forms covered">
-                122&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(contains?&nbsp;#{&quot;1M&quot;&nbsp;&quot;1q&quot;}
+                128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(contains?&nbsp;#{&quot;1M&quot;&nbsp;&quot;1q&quot;}
                 </span><br/>
 <span class="not-covered" title="0 out of 1 forms covered">
-                123&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket)&nbsp;&quot;&#x27;%m&#x27;&quot;
+                129&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket)&nbsp;&quot;&#x27;%m&#x27;&quot;
                 </span><br/>
 <span class="not-covered" title="0 out of 4 forms covered">
-                124&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(contains?&nbsp;#{&quot;1Y&quot;}
+                130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(contains?&nbsp;#{&quot;1Y&quot;}
                 </span><br/>
 <span class="not-covered" title="0 out of 1 forms covered">
-                125&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket)&nbsp;&quot;&#x27;%Y&#x27;&quot;)
+                131&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bucket)&nbsp;&quot;&#x27;%Y&#x27;&quot;)
                 </span><br/>
 <span class="not-covered" title="0 out of 6 forms covered">
-                126&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;)&nbsp;%&nbsp;&quot;&nbsp;(if&nbsp;(=&nbsp;bucket&nbsp;&quot;1d&quot;)
+                132&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;)&nbsp;%&nbsp;&quot;&nbsp;(if&nbsp;(=&nbsp;bucket&nbsp;&quot;1d&quot;)
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                127&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;3)&nbsp;&quot;)&nbsp;==&nbsp;0&nbsp;?&nbsp;&quot;
+                133&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7&nbsp;3)&nbsp;&quot;)&nbsp;==&nbsp;0&nbsp;?&nbsp;&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;timeFormat&nbsp;(datum.value,&nbsp;&#x27;%d&#x27;)&nbsp;+&nbsp;&quot;
+                134&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;timeFormat&nbsp;(datum.value,&nbsp;&#x27;%d&#x27;)&nbsp;+&nbsp;&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                129&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&#x27;-&#x27;&nbsp;+&quot;
+                135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&#x27;-&#x27;&nbsp;+&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                130&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;timeFormat&nbsp;(datum.value,&nbsp;&#x27;%m&#x27;)&nbsp;+&nbsp;&quot;
+                136&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;timeFormat&nbsp;(datum.value,&nbsp;&#x27;%m&#x27;)&nbsp;+&nbsp;&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                131&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&#x27;-&#x27;&nbsp;+&quot;
+                137&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;&#x27;-&#x27;&nbsp;+&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                132&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;timeFormat(datum.value,&nbsp;&#x27;%Y&#x27;)&nbsp;&quot;
+                138&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;timeFormat(datum.value,&nbsp;&#x27;%Y&#x27;)&nbsp;&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                133&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;:&nbsp;&#x27;&#x27;]&quot;)
+                139&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;:&nbsp;&#x27;&#x27;]&quot;)
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                134&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelFontSize&nbsp;9})))
+                140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:labelFontSize&nbsp;9})))
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                135&nbsp;&nbsp;
+                141&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                136&nbsp;&nbsp;(defn&nbsp;line-&gt;grouped-bar
+                142&nbsp;&nbsp;(defn&nbsp;line-&gt;grouped-bar
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                137&nbsp;&nbsp;&nbsp;&nbsp;&quot;Converts&nbsp;a&nbsp;spec&nbsp;with&nbsp;a&nbsp;multi&nbsp;line&nbsp;series&nbsp;(stacked)&nbsp;chart&nbsp;to&nbsp;a&nbsp;grouped&nbsp;bar&nbsp;chart
+                143&nbsp;&nbsp;&nbsp;&nbsp;&quot;Converts&nbsp;a&nbsp;spec&nbsp;with&nbsp;a&nbsp;multi&nbsp;line&nbsp;series&nbsp;(stacked)&nbsp;chart&nbsp;to&nbsp;a&nbsp;grouped&nbsp;bar&nbsp;chart
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                138&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calculates&nbsp;width&nbsp;of&nbsp;each&nbsp;group&#x27;s&nbsp;bar&nbsp;based&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;stacks&nbsp;(colours)&nbsp;and&nbsp;current&nbsp;width&nbsp;of&nbsp;the&nbsp;chart&quot;
+                144&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calculates&nbsp;width&nbsp;of&nbsp;each&nbsp;group&#x27;s&nbsp;bar&nbsp;based&nbsp;on&nbsp;the&nbsp;number&nbsp;of&nbsp;stacks&nbsp;(colours)&nbsp;and&nbsp;current&nbsp;width&nbsp;of&nbsp;the&nbsp;chart&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                139&nbsp;&nbsp;&nbsp;&nbsp;[spec&nbsp;bucket]
+                145&nbsp;&nbsp;&nbsp;&nbsp;[spec&nbsp;bucket]
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                140&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[spacing&nbsp;0
+                146&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[spacing&nbsp;0
                 </span><br/>
 <span class="covered" title="6 out of 6 forms covered">
-                141&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total-records&nbsp;(-&gt;&gt;&nbsp;spec&nbsp;:data&nbsp;:values&nbsp;count)
+                147&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total-records&nbsp;(-&gt;&gt;&nbsp;spec&nbsp;:data&nbsp;:values&nbsp;count)
                 </span><br/>
 <span class="covered" title="4 out of 4 forms covered">
-                142&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-info&nbsp;(get-fld-info&nbsp;spec&nbsp;:x)
+                148&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x-fld-info&nbsp;(get-fld-info&nbsp;spec&nbsp;:x)
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                143&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-info&nbsp;(get-stack-fld-info&nbsp;spec)
+                149&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-info&nbsp;(get-stack-fld-info&nbsp;spec)
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                144&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-width&nbsp;(get-step-size&nbsp;spec)
+                150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-width&nbsp;(get-step-size&nbsp;spec)
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                145&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-x-fld-info&nbsp;{:x&nbsp;(-&gt;&nbsp;stack-fld-info
+                151&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-x-fld-info&nbsp;{:x&nbsp;(-&gt;&nbsp;stack-fld-info
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                146&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(dissoc&nbsp;:scale)
+                152&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(dissoc&nbsp;:scale)
                 </span><br/>
 <span class="covered" title="4 out of 4 forms covered">
-                147&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:title&nbsp;&quot;&quot;)
+                153&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:title&nbsp;&quot;&quot;)
                 </span><br/>
 <span class="covered" title="6 out of 6 forms covered">
-                148&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:axis&nbsp;(merge&nbsp;(:axis&nbsp;x-fld-info)
+                154&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:axis&nbsp;(merge&nbsp;(:axis&nbsp;x-fld-info)
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                149&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:labels&nbsp;false&nbsp;:ticks&nbsp;false})))}
+                155&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:labels&nbsp;false&nbsp;:ticks&nbsp;false})))}
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column-info&nbsp;{:column&nbsp;(assoc&nbsp;x-fld-info
+                156&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column-info&nbsp;{:column&nbsp;(assoc&nbsp;x-fld-info
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                151&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:spacing&nbsp;spacing
+                157&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:spacing&nbsp;spacing
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                152&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:header&nbsp;(header-for-grouped-bar-chart&nbsp;x-fld-info&nbsp;total-records&nbsp;bucket))}
+                158&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:header&nbsp;(header-for-grouped-bar-chart&nbsp;x-fld-info&nbsp;total-records&nbsp;bucket))}
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                153&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-mark&nbsp;(assoc&nbsp;(:mark&nbsp;spec)&nbsp;:type&nbsp;&quot;bar&quot;)]
+                159&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-mark&nbsp;(assoc&nbsp;(:mark&nbsp;spec)&nbsp;:type&nbsp;&quot;bar&quot;)]
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                154&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;spec
+                160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;spec
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                155&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;new-mark)
+                161&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;new-mark)
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                156&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update-in&nbsp;[:encoding&nbsp;:y]&nbsp;dissoc&nbsp;:impute)
+                162&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update-in&nbsp;[:encoding&nbsp;:y]&nbsp;dissoc&nbsp;:impute)
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                157&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;merge&nbsp;new-x-fld-info)
+                163&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;merge&nbsp;new-x-fld-info)
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                158&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;merge&nbsp;column-info)
+                164&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;merge&nbsp;column-info)
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                159&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:width&nbsp;new-width))))
+                165&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:width&nbsp;new-width))))
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                160&nbsp;&nbsp;
+                166&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                161&nbsp;&nbsp;(defn&nbsp;grouped-bar-&gt;line
+                167&nbsp;&nbsp;(defn&nbsp;grouped-bar-&gt;line
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                162&nbsp;&nbsp;&nbsp;&nbsp;&quot;Converts&nbsp;a&nbsp;spec&nbsp;with&nbsp;a&nbsp;grouped&nbsp;bar&nbsp;chart&nbsp;to&nbsp;a&nbsp;multi&nbsp;line&nbsp;series&nbsp;(stacked)&nbsp;chart&quot;
+                168&nbsp;&nbsp;&nbsp;&nbsp;&quot;Converts&nbsp;a&nbsp;spec&nbsp;with&nbsp;a&nbsp;grouped&nbsp;bar&nbsp;chart&nbsp;to&nbsp;a&nbsp;multi&nbsp;line&nbsp;series&nbsp;(stacked)&nbsp;chart&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                163&nbsp;&nbsp;&nbsp;&nbsp;[spec]
+                169&nbsp;&nbsp;&nbsp;&nbsp;[spec]
                 </span><br/>
 <span class="covered" title="9 out of 9 forms covered">
-                164&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[width&nbsp;{:width&nbsp;(get-in&nbsp;spec&nbsp;[:width&nbsp;:original-value])}
+                170&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[width&nbsp;{:width&nbsp;(get-in&nbsp;spec&nbsp;[:width&nbsp;:original-value])}
                 </span><br/>
 <span class="covered" title="6 out of 6 forms covered">
-                165&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-x-fld-info&nbsp;{:x&nbsp;(-&gt;&nbsp;spec
+                171&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-x-fld-info&nbsp;{:x&nbsp;(-&gt;&nbsp;spec
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                166&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(get-in&nbsp;[:encoding&nbsp;:column])
+                172&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(get-in&nbsp;[:encoding&nbsp;:column])
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                167&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(dissoc&nbsp;:spacing)
+                173&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(dissoc&nbsp;:spacing)
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                168&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:axis&nbsp;dissoc&nbsp;:labelExpr)
+                174&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:axis&nbsp;dissoc&nbsp;:labelExpr)
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                169&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:header&nbsp;dissoc&nbsp;:labelExpr))}
+                175&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:header&nbsp;dissoc&nbsp;:labelExpr))}
                 </span><br/>
 <span class="covered" title="9 out of 9 forms covered">
-                170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-mark&nbsp;(assoc&nbsp;(:mark&nbsp;spec)
+                176&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new-mark&nbsp;(assoc&nbsp;(:mark&nbsp;spec)
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                171&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:type&nbsp;&quot;line&quot;
+                177&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:type&nbsp;&quot;line&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                172&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:interpolate&nbsp;&quot;monotone&quot;)]
+                178&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:interpolate&nbsp;&quot;monotone&quot;)]
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                173&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;spec
+                179&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;spec
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                174&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;new-mark)
+                180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;new-mark)
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                175&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;dissoc&nbsp;:column)
+                181&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;dissoc&nbsp;:column)
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                176&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;merge&nbsp;new-x-fld-info)
+                182&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:encoding&nbsp;merge&nbsp;new-x-fld-info)
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                177&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(merge&nbsp;width))))
+                183&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(merge&nbsp;width))))
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                178&nbsp;&nbsp;
+                184&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                179&nbsp;&nbsp;(defn&nbsp;custom-stack-colours
+                185&nbsp;&nbsp;(defn&nbsp;custom-stack-colours
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                180&nbsp;&nbsp;&nbsp;&nbsp;&quot;Adds&nbsp;custom&nbsp;colour&nbsp;to&nbsp;every&nbsp;label&#x2F;stack&nbsp;field
+                186&nbsp;&nbsp;&nbsp;&nbsp;&quot;Adds&nbsp;custom&nbsp;colour&nbsp;to&nbsp;every&nbsp;label&#x2F;stack&nbsp;field
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                181&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`colours-map`&nbsp;is&nbsp;a&nbsp;map&nbsp;with&nbsp;field&nbsp;values&nbsp;as&nbsp;keys&nbsp;and&nbsp;colours&nbsp;(hex&nbsp;strings)&nbsp;as&nbsp;values&quot;
+                187&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`colours-map`&nbsp;is&nbsp;a&nbsp;map&nbsp;with&nbsp;field&nbsp;values&nbsp;as&nbsp;keys&nbsp;and&nbsp;colours&nbsp;(hex&nbsp;strings)&nbsp;as&nbsp;values&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                182&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec&nbsp;colours-map]
+                188&nbsp;&nbsp;&nbsp;&nbsp;[vl-spec&nbsp;colours-map]
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                183&nbsp;&nbsp;&nbsp;&nbsp;(assoc-in
+                189&nbsp;&nbsp;&nbsp;&nbsp;(assoc-in
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                184&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vl-spec
+                190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vl-spec
                 </span><br/>
 <span class="covered" title="4 out of 4 forms covered">
-                185&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[:encoding&nbsp;:color&nbsp;:scale]
+                191&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[:encoding&nbsp;:color&nbsp;:scale]
                 </span><br/>
 <span class="covered" title="2 out of 2 forms covered">
-                186&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reduce
+                192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reduce
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                187&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(fn&nbsp;[scale&nbsp;[field-value&nbsp;colour]]
+                193&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(fn&nbsp;[scale&nbsp;[field-value&nbsp;colour]]
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                188&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;scale
+                194&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;scale
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                189&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:domain&nbsp;conj&nbsp;field-value)
+                195&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:domain&nbsp;conj&nbsp;field-value)
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:range&nbsp;conj&nbsp;colour)))
+                196&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(update&nbsp;:range&nbsp;conj&nbsp;colour)))
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                191&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:domain&nbsp;[]&nbsp;:range&nbsp;[]}
+                197&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:domain&nbsp;[]&nbsp;:range&nbsp;[]}
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colours-map)))
+                198&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colours-map)))
                 </span><br/>
  </body>
 </html>
