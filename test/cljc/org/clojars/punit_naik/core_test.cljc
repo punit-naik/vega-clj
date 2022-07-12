@@ -68,32 +68,56 @@
            {:field "y",
             :type "quantitative",
             :title "Count",
-            :axis {:labelAngle 0, :labelOverlap false, :grid false, :titleFontSize 14, :labelFontSize 12, :tickCount 4},
+            :axis
+            {:labelAngle 0,
+             :labelOverlap false,
+             :grid false,
+             :titleFontSize 14,
+             :labelFontSize 12,
+             :tickCount 4},
             :impute {:value 0}},
-           :color {:field "label", :type "nominal", :title "Labels", :legend {:orient "top"}},
+           :color
+           {:field "label",
+            :type "nominal",
+            :title "Labels",
+            :legend {:orient "top"}},
            :tooltip
            [{:field "x", :title "Time", :type "temporal"}
             {:field "y", :title "Count", :type "quantitative"}
             {:field "label", :title "Labels", :type "nominal"}]},
-          :transform [{:filter {:field "y", :valid true}}
-                      {:filter {:field "x", :valid true}}],
+          :transform
+          [{:filter {:field "y", :valid true}}
+           {:filter {:field "x", :valid true}}],
           :config {:view {:stroke "transparent"}, :mark {:cursor "pointer"}},
           :mark {:type "line", :invalid "filter", :interpolate "monotone"},
           :width 600,
           :background "transparent",
           :layer
           [{:encoding
-            {:color {:value "transparent", :condition {:field "label", :selection "hover"}},
+            {:color
+             {:value "transparent",
+              :condition {:field "label", :selection "hover"}},
              :opacity {:condition {:selection "B", :value 1}, :value 0.05}},
-            :mark {:strokeOpacity 0.5, :strokeDash [4 2], :type "rule", :point {:size 60, :filled true}},
+            :mark
+            {:strokeOpacity 0.5,
+             :strokeDash [4 2],
+             :type "rule",
+             :point {:size 60, :filled true}},
             :selection
-            {:hover {:nearest true, :type "single", :empty "none", :on "mouseover", :clear "mouseout"},
+            {:hover
+             {:nearest true,
+              :type "single",
+              :empty "none",
+              :on "mouseover",
+              :clear "mouseout"},
              :B {:type "multi", :fields ["label"], :bind "legend"}}}
            {:mark {:type "line", :invalid "filter", :interpolate "monotone"},
-            :selection {:company {:type "multi", :fields ["label"], :bind "legend"}},
-            :encoding {:opacity {:condition {:selection "company", :value 1}, :value 0.05}},
-            :transform [{:filter {:field "y", :valid true}}
-                        {:filter {:field "x", :valid true}}]}],
+            :selection {:C {:type "multi", :fields ["label"], :bind "legend"}},
+            :encoding
+            {:opacity {:condition {:selection "C", :value 1}, :value 0.05}},
+            :transform
+            [{:filter {:field "y", :valid true}}
+             {:filter {:field "x", :valid true}}]}],
           :id 1,
           :height 600,
           :data
