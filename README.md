@@ -18,7 +18,7 @@ lein with-profiles +clj-test test
 #### Clojurescript
 
 ```
-lein with-profiles +clj-test test
+lein with-profiles +cljs-test doo chrome-headless browser-test once
 ```
 
 ## Docs
