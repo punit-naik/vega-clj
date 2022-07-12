@@ -157,7 +157,9 @@
   (let [line-chart? (or (= chart-type "moving-avg")
                         (= chart-type "line"))
         dashed-lines? (and dashed-lines?
-                           line-chart?)]
+                           line-chart?)
+        add-rule-for-line? (and (> (count data) 1)
+                                line-chart?)]
     (cond-> (-> (init)
                 (add-dataset data)
                 (assoc :id id)
@@ -170,11 +172,7 @@
       dashed-lines? (add-dashes dash-fld-name)
       increase-hover-area? increase-hover-area
       zoom-on-scroll? zoom-on-scroll
-
-      (and stack-info
-           (> (count data) 1)
-           line-chart?)
-      (add-rule-for-line chart-type stack-fld-name chart-interpolate)
+      add-rule-for-line? (add-rule-for-line chart-type stack-fld-name chart-interpolate)
 
       (seq stack-info)
       (stack {:stack-fld stack-fld-name :stack-fld-type stack-fld-type
@@ -183,6 +181,8 @@
       (seq custom-stack-colours-map)
       (custom-stack-colours custom-stack-colours-map)
 
-      select-on-click? (select-on-click {:select-fld stack-fld-name :select-name :company})
+      select-on-click? (select-on-click {:select-fld stack-fld-name :select-name :A})
       tooltip? (add-tooltip x-fld-info y-fld-info stack-info)
-      disable-legend? (update :config merge {:legend {:disable true}}))))
+      (or disable-legend?
+          (and (not (seq stack-info))
+               add-rule-for-line?)) (update :config merge {:legend {:disable true}}))))
