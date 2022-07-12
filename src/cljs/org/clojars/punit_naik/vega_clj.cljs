@@ -6,27 +6,31 @@
 (defn- parse-vl-spec
   [spec elem click-handler-fn]
   (when (seq spec)
-    (let [click-listener-name "data-point-click"
-          opts {:renderer "canvas"
-                :mode "vega-lite"
-                :actions false
-                :tooltip {:theme "dark"}
-                ;; For click handler, we have to `patch`
-                ;; As signals are not officially supported in `vega-lite`
-                :patch (fn [spec]
-                         (.push
-                          (.-signals spec)
-                          (clj->js
-                           {"name" click-listener-name
-                            "value" 0
-                            "on" [{"events" "mousedown" "update" "datum"}]}))
-                         spec)}]
+    (let [contains-selection? (contains? spec :selection)
+          click-listener-name "data-point-click"
+          opts (cond-> {:renderer "canvas"
+                        :mode "vega-lite"
+                        :actions false
+                        :tooltip {:theme "dark"}}
+                 
+                 ;; For click handler, we have to `patch`
+                 ;; As signals are not officially supported in `vega-lite`
+                 contains-selection?
+                 (assoc :patch (fn [spec]
+                                 (.push
+                                  (.-signals spec)
+                                  (clj->js
+                                   {"name" click-listener-name
+                                    "value" 0
+                                    "on" [{"events" "mousedown" "update" "datum"}]}))
+                                 spec)))]
       (.then (js/vegaEmbed elem
                            (clj->js spec)
                            (clj->js opts))
              (fn [result]
-               (.addSignalListener (get (js->clj result) "view")
-                                   click-listener-name click-handler-fn)
+               (when contains-selection?
+                 (.addSignalListener (get (js->clj result) "view")
+                                     click-listener-name click-handler-fn))
                result)))))
 
 (defn vega-lite
