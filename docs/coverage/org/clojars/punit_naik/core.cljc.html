@@ -404,169 +404,187 @@
                 133&nbsp;&nbsp;(defn&nbsp;gen-chart-spec
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                134&nbsp;&nbsp;&nbsp;&nbsp;[id&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info
+                134&nbsp;&nbsp;&nbsp;&nbsp;[id&nbsp;data
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[chart-type&nbsp;chart-interpolate&nbsp;tooltip?
+                135&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[x-fld-name]
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                136&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dash-fld-name&nbsp;opacity-fld-name
+                136&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{x-fld-name&nbsp;&quot;x&quot;}
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                137&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increase-hover-area?&nbsp;zoom-on-scroll?
+                137&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;x-fld-info}
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                138&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;add-opacity?&nbsp;select-on-click?
+                138&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[y-fld-name]
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                139&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable-legend?]
+                139&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{y-fld-name&nbsp;&quot;y&quot;}
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{chart-type&nbsp;&quot;line&quot;
+                140&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;y-fld-info}
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                141&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chart-interpolate&nbsp;&quot;monotone&quot;
+                141&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[chart-type&nbsp;chart-interpolate&nbsp;tooltip?
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                142&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;false
+                142&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dash-fld-name&nbsp;opacity-fld-name
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                143&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-opacity?&nbsp;false
+                143&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increase-hover-area?&nbsp;zoom-on-scroll?
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                144&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-on-click?&nbsp;false
+                144&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;add-opacity?&nbsp;select-on-click?
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                145&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dash-fld-name&nbsp;&quot;stroke&quot;
+                145&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable-legend?]
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                146&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity-fld-name&nbsp;&quot;opacity&quot;
+                146&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{chart-type&nbsp;&quot;line&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                147&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip?&nbsp;true
+                147&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chart-interpolate&nbsp;&quot;monotone&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                148&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable-legend?&nbsp;false}
+                148&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;false
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                149&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;chart-info}
+                149&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-opacity?&nbsp;false
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[stack-fld-name&nbsp;stack-fld-type&nbsp;stack-fld-title&nbsp;stack-fld-opts
+                150&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-on-click?&nbsp;false
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                151&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custom-stack-colours-map]
+                151&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dash-fld-name&nbsp;&quot;stroke&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                152&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{stack-fld-name&nbsp;&quot;label&quot;
+                152&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity-fld-name&nbsp;&quot;opacity&quot;
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                153&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-type&nbsp;&quot;nominal&quot;
+                153&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip?&nbsp;true
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                154&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-title&nbsp;&quot;Labels&quot;
+                154&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable-legend?&nbsp;false}
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                155&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-opts&nbsp;{:title&nbsp;stack-fld-title&nbsp;:legend&nbsp;{:orient&nbsp;&quot;top&quot;}}}
+                155&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;chart-info}
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                156&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;stack-info}]
+                156&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{:keys&nbsp;[stack-fld-name&nbsp;stack-fld-type&nbsp;stack-fld-title&nbsp;stack-fld-opts
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                157&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;custom-stack-colours-map]
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                158&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:or&nbsp;{stack-fld-name&nbsp;&quot;label&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                159&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-type&nbsp;&quot;nominal&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-title&nbsp;&quot;Labels&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                161&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stack-fld-opts&nbsp;{:title&nbsp;stack-fld-title&nbsp;:legend&nbsp;{:orient&nbsp;&quot;top&quot;}}}
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                162&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;stack-info}]
                 </span><br/>
 <span class="partial" title="9 out of 10 forms covered">
-                157&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[line-chart?&nbsp;(or&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)
+                163&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[line-chart?&nbsp;(or&nbsp;(=&nbsp;chart-type&nbsp;&quot;moving-avg&quot;)
                 </span><br/>
 <span class="covered" title="1 out of 1 forms covered">
-                158&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;line&quot;))
+                164&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(=&nbsp;chart-type&nbsp;&quot;line&quot;))
                 </span><br/>
 <span class="partial" title="5 out of 6 forms covered">
-                159&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;(and&nbsp;dashed-lines?
+                165&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;(and&nbsp;dashed-lines?
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-chart?)
+                166&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-chart?)
                 </span><br/>
 <span class="partial" title="8 out of 9 forms covered">
-                161&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-rule-for-line?&nbsp;(and&nbsp;(&gt;&nbsp;(count&nbsp;data)&nbsp;1)
+                167&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-rule-for-line?&nbsp;(and&nbsp;(&gt;&nbsp;(count&nbsp;data)&nbsp;1)
                 </span><br/>
 <span class="not-tracked" title="0 out of 0 forms covered">
-                162&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-chart?)]
+                168&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-chart?)]
                 </span><br/>
 <span class="partial" title="21 out of 31 forms covered">
-                163&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond-&gt;&nbsp;(-&gt;&nbsp;(init)
+                169&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cond-&gt;&nbsp;(-&gt;&nbsp;(init)
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                164&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-dataset&nbsp;data)
+                170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-dataset&nbsp;data)
                 </span><br/>
 <span class="covered" title="4 out of 4 forms covered">
-                165&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:id&nbsp;id)
+                171&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc&nbsp;:id&nbsp;id)
                 </span><br/>
 <span class="covered" title="11 out of 11 forms covered">
-                166&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-axes&nbsp;(merge&nbsp;(axis-config&nbsp;:x&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;chart-info)
+                172&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-axes&nbsp;(merge&nbsp;(axis-config&nbsp;:x&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;chart-info)
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                167&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(axis-config&nbsp;:y&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;chart-info)))
+                173&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(axis-config&nbsp;:y&nbsp;data&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;chart-info)))
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                168&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;(mark-config&nbsp;chart-info))
+                174&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(add-mark&nbsp;(mark-config&nbsp;chart-info))
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                169&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;x&quot;&nbsp;:valid&nbsp;true})
+                175&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;x-fld-name&nbsp;:valid&nbsp;true})
                 </span><br/>
 <span class="covered" title="6 out of 6 forms covered">
-                170&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;&quot;y&quot;&nbsp;:valid&nbsp;true}))
+                176&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(apply-filter&nbsp;{:field&nbsp;y-fld-name&nbsp;:valid&nbsp;true}))
                 </span><br/>
 <span class="partial" title="1 out of 5 forms covered">
-                171&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-opacity?&nbsp;(add-opacity&nbsp;opacity-fld-name)
+                177&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-opacity?&nbsp;(add-opacity&nbsp;opacity-fld-name)
                 </span><br/>
 <span class="partial" title="1 out of 5 forms covered">
-                172&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;(add-dashes&nbsp;dash-fld-name)
+                178&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dashed-lines?&nbsp;(add-dashes&nbsp;dash-fld-name)
                 </span><br/>
 <span class="partial" title="1 out of 2 forms covered">
-                173&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increase-hover-area?&nbsp;increase-hover-area
+                179&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increase-hover-area?&nbsp;increase-hover-area
                 </span><br/>
 <span class="partial" title="1 out of 2 forms covered">
-                174&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom-on-scroll?&nbsp;zoom-on-scroll
-                </span><br/>
-<span class="covered" title="7 out of 7 forms covered">
-                175&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-rule-for-line?&nbsp;(add-rule-for-line&nbsp;chart-type&nbsp;stack-fld-name&nbsp;chart-interpolate)
-                </span><br/>
-<span class="blank" title="0 out of 0 forms covered">
-                176&nbsp;&nbsp;
-                </span><br/>
-<span class="covered" title="3 out of 3 forms covered">
-                177&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(seq&nbsp;stack-info)
+                180&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zoom-on-scroll?&nbsp;zoom-on-scroll
                 </span><br/>
 <span class="covered" title="9 out of 9 forms covered">
-                178&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(stack&nbsp;{:stack-fld&nbsp;stack-fld-name&nbsp;:stack-fld-type&nbsp;stack-fld-type
-                </span><br/>
-<span class="covered" title="1 out of 1 forms covered">
-                179&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:stack-fld-opts&nbsp;stack-fld-opts})
+                181&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-rule-for-line?&nbsp;(add-rule-for-line&nbsp;chart-type&nbsp;x-fld-name&nbsp;y-fld-name&nbsp;stack-fld-name&nbsp;chart-interpolate)
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                180&nbsp;&nbsp;
+                182&nbsp;&nbsp;
                 </span><br/>
 <span class="covered" title="3 out of 3 forms covered">
-                181&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(seq&nbsp;custom-stack-colours-map)
+                183&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(seq&nbsp;stack-info)
                 </span><br/>
-<span class="not-covered" title="0 out of 4 forms covered">
-                182&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(custom-stack-colours&nbsp;custom-stack-colours-map)
+<span class="covered" title="9 out of 9 forms covered">
+                184&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(stack&nbsp;{:stack-fld&nbsp;stack-fld-name&nbsp;:stack-fld-type&nbsp;stack-fld-type
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                185&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:stack-fld-opts&nbsp;stack-fld-opts})
                 </span><br/>
 <span class="blank" title="0 out of 0 forms covered">
-                183&nbsp;&nbsp;
+                186&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                187&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(seq&nbsp;custom-stack-colours-map)
+                </span><br/>
+<span class="not-covered" title="0 out of 4 forms covered">
+                188&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(custom-stack-colours&nbsp;custom-stack-colours-map)
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                189&nbsp;&nbsp;
                 </span><br/>
 <span class="partial" title="1 out of 9 forms covered">
-                184&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-on-click?&nbsp;(select-on-click&nbsp;{:select-fld&nbsp;stack-fld-name&nbsp;:select-name&nbsp;:A})
+                190&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select-on-click?&nbsp;(select-on-click&nbsp;{:select-fld&nbsp;stack-fld-name&nbsp;:select-name&nbsp;:A})
                 </span><br/>
 <span class="covered" title="7 out of 7 forms covered">
-                185&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip?&nbsp;(add-tooltip&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;stack-info)
+                191&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip?&nbsp;(add-tooltip&nbsp;x-fld-info&nbsp;y-fld-info&nbsp;stack-info)
                 </span><br/>
 <span class="partial" title="8 out of 10 forms covered">
-                186&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or&nbsp;disable-legend?
+                192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(or&nbsp;disable-legend?
                 </span><br/>
 <span class="covered" title="5 out of 5 forms covered">
-                187&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(and&nbsp;(not&nbsp;(seq&nbsp;stack-info))
+                193&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(and&nbsp;(not&nbsp;(seq&nbsp;stack-info))
                 </span><br/>
 <span class="not-covered" title="0 out of 7 forms covered">
-                188&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-rule-for-line?))&nbsp;(update&nbsp;:config&nbsp;merge&nbsp;{:legend&nbsp;{:disable&nbsp;true}}))))
+                194&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;add-rule-for-line?))&nbsp;(update&nbsp;:config&nbsp;merge&nbsp;{:legend&nbsp;{:disable&nbsp;true}}))))
                 </span><br/>
  </body>
 </html>
