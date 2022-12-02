@@ -18,3 +18,4 @@ pom.xml.asc
 package*.json
 /.calva
 .eastwood
+/.cljs_node_repl
