@@ -81,6 +81,8 @@
          (draw/add-rule-for-line
           {}
           "line"
+          "x"
+          "y"
           "label"
           "monotone"))))
 

@@ -65,7 +65,7 @@
 (defn add-rule-for-line
   "Adds a rule (vertical line) when hovered over any point, works even when not exactly hovered over a point
    Makes clicking on line charts easier"
-  [spec chart-type stack-fld-name chart-interpolate]
+  [spec chart-type x-fld-name y-fld-name stack-fld-name chart-interpolate]
   (assoc
    spec
    :layer
@@ -80,8 +80,8 @@
                         (or (= chart-type "line")
                             (= chart-type "moving-avg")) (assoc :interpolate chart-interpolate)))
         (select-on-click {:select-fld stack-fld-name :select-name :C})
-        (apply-filter {:field "x" :valid true})
-        (apply-filter {:field "y" :valid true}))]))
+        (apply-filter {:field x-fld-name :valid true})
+        (apply-filter {:field y-fld-name :valid true}))]))
 
 (defn stack
   "Stacks charts based on a particular field on the aggregated field of the chart

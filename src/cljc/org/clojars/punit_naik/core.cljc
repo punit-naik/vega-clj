@@ -131,7 +131,13 @@
                    x-fld-temporal? (assoc :impute {:value 0}))}))
 
 (defn gen-chart-spec
-  [id data x-fld-info y-fld-info
+  [id data
+   {:keys [x-fld-name]
+    :or {x-fld-name "x"}
+    :as x-fld-info}
+   {:keys [y-fld-name]
+    :or {y-fld-name "y"}
+    :as y-fld-info}
    {:keys [chart-type chart-interpolate tooltip?
            dash-fld-name opacity-fld-name
            increase-hover-area? zoom-on-scroll?
@@ -166,13 +172,13 @@
                 (add-axes (merge (axis-config :x data x-fld-info y-fld-info chart-info)
                                  (axis-config :y data x-fld-info y-fld-info chart-info)))
                 (add-mark (mark-config chart-info))
-                (apply-filter {:field "x" :valid true})
-                (apply-filter {:field "y" :valid true}))
+                (apply-filter {:field x-fld-name :valid true})
+                (apply-filter {:field y-fld-name :valid true}))
       add-opacity? (add-opacity opacity-fld-name)
       dashed-lines? (add-dashes dash-fld-name)
       increase-hover-area? increase-hover-area
       zoom-on-scroll? zoom-on-scroll
-      add-rule-for-line? (add-rule-for-line chart-type stack-fld-name chart-interpolate)
+      add-rule-for-line? (add-rule-for-line chart-type x-fld-name y-fld-name stack-fld-name chart-interpolate)
 
       (seq stack-info)
       (stack {:stack-fld stack-fld-name :stack-fld-type stack-fld-type
